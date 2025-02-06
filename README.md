@@ -70,3 +70,29 @@ Hacer un refresh
 
 ##Conexion con nuestra BBDD POSTGRESQL##
 pip install psycopg2
+
+configurar los setting.py 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ELNOMBREDETUBBDD',
+        'USER': 'postgres',
+        'PASSWORD': 'TUCLAVE', 
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+Soltar  
+python manage.py makemigrations
+python manage.py migrate
+
+Insertar desde la consola un usaurio(por ejemplo)
+python manage.py shell 
+
+Creo mi modelo
+from base.models import Client
+Creo una variable
+client=Client(name='Rodrigo',address='Asturias 23',email='test@test.com',phone='654236178')
+client.save()
