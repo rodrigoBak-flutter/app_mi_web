@@ -54,3 +54,19 @@ Running migrations:
 
 ##PRUEBA DE SI TODO VA BIEN EN LA APLICACAION##
 python manage.py check base
+
+
+
+##CREACION DE BBDD POSTGRESQL##
+Dentro de Query tools puedo agregar mis comandos para creacion consulta, y demas.
+
+create database ArticlesClients 
+
+respuesta
+CREATE DATABASE
+Query returned successfully in 563 msec.
+
+Hacer un refresh
+
+##Conexion con nuestra BBDD POSTGRESQL##
+pip install psycopg2
