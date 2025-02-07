@@ -93,6 +93,34 @@ python manage.py shell
 
 Creo mi modelo
 from base.models import Client
+
 Creo una variable
 client=Client(name='Rodrigo',address='Asturias 23',email='test@test.com',phone='654236178')
 client.save()
+
+Consultas por secciones(where) en mi 
+from base.models import Articles
+Articles.objects.filter(section='Deporte')
+
+agregar en nuestro modelo
+#Con esto me devuelve raqueta, la seccion, el nombre, precio
+    def __str__(self):
+        return 'El nombre es %s la seccion es %s y el precio es %s' %(self.name, self.section,self.price)
+python manage.py makemigrations
+python manage.py migrate
+auque no haga nada, si que hace despues repetir el proceso:
+respuesta = <QuerySet [<Articles: El nombre es Paleta la seccion es Deporte y el precio es 150.80>]>
+
+
+Consulta mas restrictiva
+Articles.objects.filter(name'Mesa',section='Hogar') 
+
+Ordenar ascendente, de menor a mayor
+Articles.objects.filter(price__gte =50).order_by('price')
+
+Ordenar descendente, de mayor a menor
+Articles.objects.filter(price__gte =50).order_by('-price')
+
+
+##CAMBIO DE IDIOMA DE MI PANEL DE CONTROL ADMIN###
+SETTINGS:PY ===> LANGUAGE_CODE = 'en-us'EEUU(por defecto)   LANGUAGE_CODE = 'es-es'ESPAÑOL     LANGUAGE_CODE = 'es-ar' ARGENTINA 
