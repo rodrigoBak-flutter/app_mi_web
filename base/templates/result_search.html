@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result search</title>
+    <style>
+        .article-item {
+            display: flex;
+            gap: 5px; 
+            align-items: center; 
+        }
+    </style>
+</head>
+<body>
+    <p>Are you looking for: <strong>{{ query }}</strong>?</p>
+
+    {% if articles %}
+        <p>Articles found: {{ articles|length }} articles</p>
+        <ul>
+            {% for article in articles %}
+                <li class="article-item">
+                    &bull;<span>{{ article.name }}</span> &nbsp;
+                    <span>{{ article.section }}</span> &nbsp;
+                    <span>{{ article.price }} €</span>
+
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Article not found</p>
+    {% endif %}
+</body>
+</html>
